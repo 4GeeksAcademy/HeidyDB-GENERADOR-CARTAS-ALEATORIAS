@@ -18,21 +18,27 @@ body{
     position: relative;
    
 }
+#boton{
+  margin-left: 50%;
+  margin-top : 60px;
+ 
+}
 
 /*  los numeros de la carta */
 
-div.num-carta {
+#card-symbol {
     position: absolute;
     text-align: center;
-    font: Arial, serif;
-    top: 210px;
-    color: red;
-    font-size: 50px;
+    font: arial, serif;
+    top: 170px;
+    left: 130px;
+    color:black ;
+    font-size: 80px;
 
 }
 
 /* corazones  */
-div.hearts:before {
+ .hearts:before {
     content: "♥";
     font-size: 90px;
     position: absolute;
@@ -41,7 +47,7 @@ div.hearts:before {
     color: red;
   }
 
-  div.hearts:after {
+  .hearts:after {
     content: "♥";
     font-size: 90px;
     position: absolute;
@@ -52,11 +58,63 @@ div.hearts:before {
   }
 
 /* diamantes  */
-div.diamonds:before {
+.diamonds:before {
     content: "♦";
     font-size: 90px;
     position: absolute;
     top: 8px;
     left: 20px;
     color: red;
+  }
+
+.diamonds:after {
+    content: "♦";
+    font-size: 90px;
+    position: absolute;
+    top: 360px;
+    left: 220px;
+    color: red;
+    transform: rotate(180deg);
+  }
+
+
+
+/* espadas  */
+.spades:before {
+    content: "♠";
+    font-size: 90px;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    color: black;
+  }
+  
+.spades:after {
+    content: "♠";
+    font-size: 90px;
+    position: absolute;
+    top: 360px;
+    left: 220px;
+    color: black;
+    transform: rotate(180deg);
+  }
+  
+  /* trebol  */
+.clubs:before {
+    content: "♣";
+    font-size: 90px;
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    color: black;
+  }
+  
+.clubs:after {
+    content: "♣";
+    font-size: 90px;
+    position: absolute;
+    top: 360px;
+    left: 220px;
+    color: black;
+    transform: rotate(180deg);
   }
