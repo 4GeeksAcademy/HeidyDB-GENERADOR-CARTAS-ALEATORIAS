@@ -26,7 +26,7 @@ body{
 
 /*  los numeros de la carta */
 
-#card-symbol {
+#card-numero {
     position: absolute;
     text-align: center;
     font: arial, serif;
