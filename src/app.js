@@ -6,8 +6,9 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
- generateRandomCard()
+ generateRandomCard();
 } 
+
 
   function generateRandomCard(){
      let nrosCarta = [ '2', '3', '4','5', '6', '7', '8', '9', '10', 'Q', 'K', 'J', 'A'];
@@ -19,20 +20,34 @@ window.onload = function() {
      let valorCarta = nrosCarta[crearRandomNros]; //valor de la posicion random del arreglo de numeros
      let paloCarta = palosCarta[crearRandomPalo]; //valor de la posicion random del arreglo de palos   
       
+     function claseCarta(paloCarta){  //devuelve las caracterisiticas de la clase segun el valor del array
+      if (paloCarta == "heart") return "hearts";
+      if (paloCarta == "diamond") return "diamonds";
+      if (paloCarta == "spade") return "spades";
+      if (paloCarta == "club") return "clubs";
+    } 
 
    //Seleccionar los elementos del Dom
   
         document.getElementById("card-numero").innerHTML = valorCarta;
-        document.getElementById("card").classList.add(claseCarta(paloCarta));
-        document.getElementById("card-value").innerHTML = claseCarta(paloCarta);
-        let generarBoton= document.getElementById("boton"); // llama a la funcion para generar la carta en el boton
-        generarBoton.addEventListener("click", generateRandomCard());
+        document.getElementById("top-value").className= "card-value top-left " + claseCarta(paloCarta) ;
+        document.getElementById("bottom-value").className ="card-value bottom-righ " + claseCarta(paloCarta) ;
+      
       };
       
- 
-function claseCarta(paloCarta){  //devuelve las caracterisiticas de la clase segun el valor del array
-  if (paloCarta == "heart") return "hearts";
-  if (paloCarta == "diamond") return "diamonds";
-  if (paloCarta == "spade") return "spades";
-  if (paloCarta == "club") return "clubs";
-} 
+ window.botonGenerador = function botonGenerador(){
+     generateRandomCard();
+ }
+
+
+ window.resizeCard = function resizeCard(){ //para el boton de redimensionar la carta 
+
+  let alto= document.getElementById("inputAlto");
+  let ancho = document.getElementById("inputAncho");
+  let carta = document.getElementById("card");
+  let proporAncho = ancho.valueAsNumber / carta.offsetWidth; 
+  let proporAlto = alto.valueAsNumber / carta.offsetHeight;
+  carta.style.transform = `scale(${proporAncho}, ${proporAlto})` ;
+
+ }
+
